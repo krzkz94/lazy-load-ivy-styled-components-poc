@@ -16,7 +16,7 @@ export class ThemeComponent implements OnInit, OnChanges {
     "dark": "../dark-theme/dark-theme.component",
   };
 
-  lazyComponent;
+  themeComponent$;
 
   constructor(@Inject(DOCUMENT) private document: Document) {
   }
@@ -31,12 +31,12 @@ export class ThemeComponent implements OnInit, OnChanges {
 
       switch(changes.theme.currentValue) {
         case 'light': 
-          this.lazyComponent = import("../light-theme/light-theme.component").then(({ThemeComponent}) => ThemeComponent);
+          this.themeComponent$ = import("../light-theme/light-theme.component").then(({ThemeComponent}) => ThemeComponent);
 
           break;
 
         case 'dark':
-            this.lazyComponent = import("../dark-theme/dark-theme.component").then(({ThemeComponent}) => ThemeComponent);
+            this.themeComponent$ = import("../dark-theme/dark-theme.component").then(({ThemeComponent}) => ThemeComponent);
 
           break;
       }

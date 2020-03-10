@@ -1,3 +1,7 @@
-<ng-template [ngComponentOutlet]="lazyComponent | async"></ng-template>
+<ng-container *ngIf="themeComponent$ | async as themeComponent">
+  <ng-template [ngComponentOutlet]="themeComponent"></ng-template>
 
-<ng-content></ng-content>
+  <ng-content *ngIf="themeComponent"></ng-content>
+</ng-container>
+
+
