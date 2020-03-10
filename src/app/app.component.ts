@@ -8,11 +8,9 @@ import {Component} from '@angular/core';
 export class AppComponent {
   title = 'themeable-app-ivy';
 
-  currentTheme = 'first';
+  currentTheme = 'dark';
 
   constructor() {
-    setTimeout(() => {
-      this.currentTheme = 'second';
-    }, 5000);
+    
   }
 }

@@ -1,13 +1,25 @@
-.card {
-  min-width: 400px;
-  border: 1px solid #eee;
-  border-radius: 5px;
+.theme-switcher__button {
+
+  border: 2px solid #ccc;
+  width: 24px;
+  height: 24px;
+
+  margin: 8px;
+
+  &--light {
+    background-color: #fff;
+  }
+
+  &--dark {
+    background-color: #333;
+  }
 }
 
-.card-title {
-  padding: 8px;
-}
+.card-wrapper {
+  display: flex;
 
-.card-body {
-  padding: 8px;
+  app-card {
+    display: flex;
+    padding: 8px;
+  }
 }

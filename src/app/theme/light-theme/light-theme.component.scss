@@ -1,0 +1,10 @@
+@import "../../components/card/card.component.theme";
+
+.theme-light {
+  background-color: #fafafa;
+
+  @include app-card-theme((
+    card-background: #fff,
+    card-text-color: #333
+  ));
+}

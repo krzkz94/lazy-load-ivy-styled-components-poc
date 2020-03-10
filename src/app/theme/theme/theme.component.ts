@@ -1,4 +1,5 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges, Inject} from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-theme',
@@ -10,21 +11,44 @@ export class ThemeComponent implements OnInit, OnChanges {
   @Input()
   theme: string;
 
+  themes = {
+    "light": "../light-theme/light-theme.component",
+    "dark": "../dark-theme/dark-theme.component",
+  };
+
   lazyComponent;
 
-  constructor() {
+  constructor(@Inject(DOCUMENT) private document: Document) {
   }
 
   ngOnInit(): void {
 
   }
 
-  ngOnChanges(changes) {
-    if (this.theme === 'first') {
-      this.lazyComponent = import('../theme1/theme1.component').then(({Theme1Component}) => Theme1Component);
-    } else if (this.theme === 'second') {
-      this.lazyComponent = import('../theme2/theme2.component').then(({Theme2Component}) => Theme2Component);
+  ngOnChanges(changes: SimpleChanges) {
+
+    if(changes.theme && changes.theme.currentValue) {
+
+      switch(changes.theme.currentValue) {
+        case 'light': 
+          this.lazyComponent = import("../light-theme/light-theme.component").then(({ThemeComponent}) => ThemeComponent);
+
+          break;
+
+        case 'dark':
+            this.lazyComponent = import("../dark-theme/dark-theme.component").then(({ThemeComponent}) => ThemeComponent);
+
+          break;
+      }
+
+      this.switchTheme(changes.theme.previousValue, changes.theme.currentValue);
     }
+  }
+
+  switchTheme(previousTheme, nextTheme) {
+
+    this.document.body.classList.remove(`theme-${previousTheme}`);
+    this.document.body.classList.add(`theme-${nextTheme}`);
   }
 
 }

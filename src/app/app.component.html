@@ -1,15 +1,30 @@
+<div class="theme-switcher">
+  <button class="theme-switcher__button theme-switcher__button--light" 
+    [class.selected]="currentTheme === 'light'"
+    (click)="currentTheme = 'light'"
+    >
+  </button>
+  <button class="theme-switcher__button theme-switcher__button--dark" 
+    [class.selected]="currentTheme === 'dark'"
+    (click)="currentTheme = 'dark'"
+    >
+  </button>
+</div>
+
 <app-theme [theme]="currentTheme">
-  <div class="card">
-    <h1 class="card-title">
-      This is a card title
-    </h1>
 
-    <div class="card-body">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua.
-    </div>
-
+  <div class="card-wrapper">
+    <app-card title="First card" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+    </app-card>
+  
+    <app-card title="Second card" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+    </app-card>
+  
+    <app-card title="Third card" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+    </app-card>
   </div>
+  
+
 </app-theme>
 
 

@@ -1,15 +1,14 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
-  selector: 'app-theme1',
+  selector: 'app-dark-theme',
   template: '',
-  styleUrls: ['./theme1.component.scss'],
+  styleUrls: ['./dark-theme.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class Theme1Component implements OnInit {
+export class ThemeComponent implements OnInit {
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }
