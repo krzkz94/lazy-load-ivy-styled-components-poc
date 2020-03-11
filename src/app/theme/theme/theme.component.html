@@ -1,7 +1,7 @@
 <ng-container *ngIf="themeComponent$ | async as themeComponent">
   <ng-template [ngComponentOutlet]="themeComponent"></ng-template>
 
-  <ng-content *ngIf="themeComponent"></ng-content>
+  <ng-content></ng-content>
 </ng-container>
 
 
